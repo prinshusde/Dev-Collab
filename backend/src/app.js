@@ -7,7 +7,7 @@ app.get("/test",(req,res,next)=>{
     console.log("first route")
     next()
     console.log("after next")
-    res.send("Hello from server response")
+    //res.send("Hello from server response")
     
 },
 (req,res,next)=>{
@@ -15,9 +15,11 @@ app.get("/test",(req,res,next)=>{
     //res.send("Hello from server response1")
     next()
 },
-(req,res)=>{
+(req,res,next)=>{
      console.log("Third route")
     res.send("Hello from server response2")
+    next();
+    console.log("after next last")
 },
 
 ) 
@@ -40,9 +42,9 @@ app.use("/test/:testId",(req,res)=>{
 
 
 
-app.use("/",(req,res)=>{
-    res.send("Hello from dashboard")
-})
+// app.use("/",(req,res)=>{
+//     res.send("Hello from dashboard")
+// })
 
 
 
